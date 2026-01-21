@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCreate Group - Presupuestos Profesionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border-bottom: 4px solid #ffff00;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #ffff00;
+            margin-bottom: 10px;
+        }
+
+        .confidential {
+            font-size: 14px;
+            color: #999;
+            font-style: italic;
+        }
+
+        .section {
+            background: #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-left: 5px solid #ffff00;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #ffff00;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffff00;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #ffff00;
+            color: #1a1a1a;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #3d3d3d;
+            color: #e0e0e0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #252525;
+        }
+
+        .conditions-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .conditions-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .conditions-list li:before {
+            content: "•";
+            color: #ffff00;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .package {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 2px solid #ffff00;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(255, 255, 0, 0.2);
+        }
+
+        .package-title {
+            font-size: 22px;
+            color: #ffff00;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .package-price {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .package-description {
+            color: #e0e0e0;
+            font-size: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #1a1a1a;
+            border-top: 4px solid #ffff00;
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            color: #999;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .contact-info {
+            color: #e0e0e0;
+            margin: 10px 0;
+        }
+
+        .contact-info a {
+            color: #ffff00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            color: #ffff00;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .logo {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">iCreate Group</div>
+        <div class="tagline">Transformación Digital Empresarial</div>
+        <div class="subtitle">Presupuestos profesionales</div>
+        <div style="color: #e0e0e0; margin: 10px 0;">Servicios de digitalización, automatización y consultoría tecnológica</div>
+        <div class="confidential">Documento confidencial · Uso interno y clientes</div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Presentación</div>
+            <p class="intro-text">
+                Este documento recoge la oferta oficial de servicios de iCreate Group en materia de transformación digital, desarrollo tecnológico, automatización de procesos y consultoría estratégica. Está diseñado para empresas, pymes y startups que buscan soluciones reales, escalables y sostenibles.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Consultoría tecnológica: qué es y qué incluye</div>
+            <p class="intro-text">
+                La consultoría tecnológica de iCreate consiste en analizar, planificar y acompañar la toma de decisiones tecnológicas con criterio técnico y de negocio. Su objetivo es evitar errores, optimizar inversiones y garantizar que cada proyecto tenga una base sólida.
+            </p>
+            <table>
+                <tr>
+                    <th>Modalidad</th>
+                    <th>Incluye</th>
+                    <th>Resultado</th>
+                </tr>
+                <tr>
+                    <td><strong>Consultoría inicial (gratuita)</strong></td>
+                    <td>Análisis del negocio, revisión digital, detección de oportunidades</td>
+                    <td>Diagnóstico claro y recomendaciones</td>
+                </tr>
+                <tr>
+                    <td><strong>Plan estratégico digital</strong></td>
+                    <td>Auditoría técnica, procesos, arquitectura, roadmap, costes</td>
+                    <td>Hoja de ruta ejecutable</td>
+                </tr>
+                <tr>
+                    <td><strong>Acompañamiento mensual</strong></td>
+                    <td>Seguimiento, asesoramiento continuo, validación técnica</td>
+                    <td>Ejecución correcta y evolución</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Condiciones generales del servicio</div>
+            <ul class="conditions-list">
+                <li>Todos los precios indicados son sin IVA.</li>
+                <li>Presupuestos orientativos ajustables según alcance final.</li>
+                <li>Contratos de mantenimiento mensuales flexibles.</li>
+                <li>Primer mes de mantenimiento incluido en el desarrollo inicial.</li>
+                <li>El mantenimiento cubre errores, cuelgues, cambios pequeños y trabajos inferiores a 2 horas.</li>
+                <li>Desarrollos adicionales se presupuestan aparte.</li>
+                <li>Si no se contrata mantenimiento, se entrega el proyecto para hosting propio (hasta un límite de uso).</li>
+                <li>La no renovación debe comunicarse antes de la renovación automática.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">1. Digitalización y presencia web</div>
+            <table>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Proyecto</th>
+                    <th>Mantenimiento</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td><strong>iMenu</strong></td>
+                    <td>150 - 300 € + IVA</td>
+                    <td>20-25 € / mes + IVA</td>
+                    <td>Soporte básico</td>
+                </tr>
+                <tr>
+                    <td><strong>Landing Page</strong></td>
+                    <td>500 € + IVA</td>
+                    <td>100-120 € / mes + IVA</td>
+                    <td>Actualizaciones</td>
+                </tr>
+                <tr>
+                    <td><strong>Web corporativa</strong></td>
+                    <td>700 - 1.500 € + IVA</td>
+                    <td>110-130 € / mes + IVA</td>
+                    <td>Cambios menores</td>
+                </tr>
+                <tr>
+                    <td><strong>Tienda online</strong></td>
+                    <td>1.800 - 3.200 € + IVA</td>
+                    <td>150-200 € / mes + IVA</td>
+                    <td>Escalable</td>
+                </tr>
+                <tr>
+                    <td><strong>Web + CRM/ERP</strong></td>
+                    <td>3.000 - 6.000 € + IVA</td>
+                    <td>350-600 € / mes + IVA</td>
+                    <td>Entorno empresarial</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">2. Desarrollo de aplicaciones</div>
+            <table>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Proyecto</th>
+                    <th>Mantenimiento</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td><strong>App web a medida</strong></td>
+                    <td>3.000 - 7.000 € + IVA</td>
+                    <td>380-450 € / mes + IVA</td>
+                    <td>Evolutivo</td>
+                </tr>
+                <tr>
+                    <td><strong>Gestor de citas</strong></td>
+                    <td>600 - 1.000 € + IVA</td>
+                    <td>300-350 € / mes + IVA</td>
+                    <td>Soporte</td>
+                </tr>
+                <tr>
+                    <td><strong>Chatbot</strong></td>
+                    <td>250 € instalación</td>
+                    <td>250 € / mes + IVA</td>
+                    <td>Límite de uso</td>
+                </tr>
+                <tr>
+                    <td><strong>API / Integraciones</strong></td>
+                    <td>2.000 - 5.000 € + IVA</td>
+                    <td>350-400 € / mes + IVA</td>
+                    <td>Monitorización</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">3. Automatización de procesos</div>
+            <table>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Proyecto</th>
+                    <th>Mantenimiento</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td><strong>Flujos básicos</strong></td>
+                    <td>1.000 - 2.500 € + IVA</td>
+                    <td>250-400 € / mes + IVA</td>
+                    <td>Optimización</td>
+                </tr>
+                <tr>
+                    <td><strong>Automatizaciones complejas</strong></td>
+                    <td>2.500 - 6.000 € + IVA</td>
+                    <td>250-400 € / mes + IVA</td>
+                    <td>Escalable</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">4. Monitorización e infraestructura</div>
+            <table>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Proyecto</th>
+                    <th>Mantenimiento</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td><strong>Monitorización básica</strong></td>
+                    <td>1.200 - 2.800 € + IVA</td>
+                    <td>—</td>
+                    <td>Uptime y alertas</td>
+                </tr>
+                <tr>
+                    <td><strong>Monitorización avanzada</strong></td>
+                    <td>3.000 - 7.000 € + IVA</td>
+                    <td>—</td>
+                    <td>Sistemas críticos</td>
+                </tr>
+                <tr>
+                    <td><strong>Soporte SLA</strong></td>
+                    <td>—</td>
+                    <td>Desde 300 € / mes + IVA</td>
+                    <td>Prioritario</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">5. Consultoría tecnológica (precios)</div>
+            <table>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Proyecto</th>
+                    <th>Mantenimiento</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td><strong>Consultoría inicial</strong></td>
+                    <td>0 €</td>
+                    <td>—</td>
+                    <td>Diagnóstico</td>
+                </tr>
+                <tr>
+                    <td><strong>Plan estratégico digital</strong></td>
+                    <td>600 - 1.800 € + IVA</td>
+                    <td>—</td>
+                    <td>Documento</td>
+                </tr>
+                <tr>
+                    <td><strong>Acompañamiento mensual</strong></td>
+                    <td>—</td>
+                    <td>300 - 900 € / mes + IVA</td>
+                    <td>Seguimiento</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Paquetes orientativos</div>
+            
+            <div class="package">
+                <div class="package-title">Startup Digital Pack</div>
+                <div class="package-price">desde 2.500 € + IVA</div>
+                <div class="package-description">
+                    Incluye web corporativa o landing, automatización básica y consultoría inicial.
+                </div>
+            </div>
+
+            <div class="package">
+                <div class="package-title">Pyme Growth Pack</div>
+                <div class="package-price">desde 6.000 € + IVA</div>
+                <div class="package-description">
+                    Incluye e-commerce o web avanzada, automatizaciones intermedias y plan estratégico digital.
+                </div>
+            </div>
+
+            <div class="package">
+                <div class="package-title">Transformación Digital Completa</div>
+                <div class="package-price">desde 9.000 € + IVA</div>
+                <div class="package-description">
+                    Incluye web + app, automatizaciones avanzadas, infraestructura monitorizada y acompañamiento continuo.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">iCreate Group</div>
+        <div class="footer-tagline">Tecnología · Automatización · Crecimiento Digital</div>
+        <div class="contact-info">
+            Web: <a href="https://icreategroup.net" target="_blank">https://icreategroup.net</a>
+        </div>
+        <div class="contact-info">
+            Email: <a href="mailto:group.icreate@gmail.com">group.icreate@gmail.com</a>
+        </div>
+        <div class="copyright">© iCreate Group</div>
+    </div>
+</body>
+</html>
